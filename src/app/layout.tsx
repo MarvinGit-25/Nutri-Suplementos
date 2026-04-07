@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CartDrawer } from "@/components/CartDrawer";
 import { Providers } from "@/components/Providers";
+import { WhatsAppWidget } from "@/components/WhatsAppWidget";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,8 +35,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <body className={`${inter.className} min-h-screen flex flex-col`}>
+    <html lang="pt-BR" className="dark">
+      <body className={`${inter.className} min-h-screen flex flex-col bg-dark-900 text-white`}>
         <Providers>
           <Navbar />
           <main className="flex-grow">
@@ -43,6 +44,7 @@ export default function RootLayout({
           </main>
           <Footer />
           <CartDrawer />
+          <WhatsAppWidget />
         </Providers>
       </body>
     </html>

@@ -24,12 +24,14 @@ export function Navbar() {
 
     return (
         <header className="sticky top-0 z-50 w-full glass">
+            {/* Gradient Accent */}
+            <div className="h-1 w-full bg-gradient-to-r from-[#FFD700] via-[#ff8c00] to-[#FF007F]"></div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <div className="flex-shrink-0 flex items-center">
-                        <Link href="/" className="text-2xl font-black tracking-tighter text-brand-500">
-                            NUTRI<span className="text-foreground">SUP</span>
+                        <Link href="/" className="flex items-center gap-1">
+                            <span className="text-2xl font-black tracking-tighter text-brand-500 uppercase">XNUTRI</span>
                         </Link>
                     </div>
 

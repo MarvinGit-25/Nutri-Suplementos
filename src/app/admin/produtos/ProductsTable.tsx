@@ -97,14 +97,16 @@ export function ProductsTable({ products, categories, isCreateOnly = false }: Pr
 
     if (isCreateOnly) {
         return (
-            <button onClick={openCreate} className="flex items-center gap-2 px-5 py-3 bg-brand-500 hover:bg-brand-600 text-white rounded-xl font-bold transition-colors shadow-lg shadow-brand-500/25">
-                <Plus className="w-5 h-5" /> Novo Produto
-                {showModal && <Modal />}
-            </button>
+            <>
+                <button onClick={openCreate} className="flex items-center gap-2 px-5 py-3 bg-brand-500 hover:bg-brand-600 text-white rounded-xl font-bold transition-colors shadow-lg shadow-brand-500/25">
+                    <Plus className="w-5 h-5" /> Novo Produto
+                </button>
+                {showModal && renderModal()}
+            </>
         );
     }
 
-    function Modal() {
+    function renderModal() {
         return (
             <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 text-gray-900 dark:text-white">
                 <div className="bg-white dark:bg-dark-900 rounded-2xl w-full max-w-2xl border border-gray-100 dark:border-dark-800 shadow-2xl overflow-hidden">
@@ -265,7 +267,7 @@ export function ProductsTable({ products, categories, isCreateOnly = false }: Pr
                 )}
             </div>
 
-            {showModal && <Modal />}
+            {showModal && renderModal()}
         </>
     );
 }

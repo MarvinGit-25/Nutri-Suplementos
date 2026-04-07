@@ -11,13 +11,13 @@ const navItems = [
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
     return (
-        <div className="flex min-h-screen bg-gray-50 dark:bg-dark-950">
+        <div className="flex min-h-screen bg-dark-950">
             {/* Sidebar */}
             <aside className="w-64 bg-dark-900 text-white flex flex-col flex-shrink-0">
                 <div className="p-6 border-b border-dark-800">
-                    <Link href="/" className="text-xl font-black tracking-tighter">
-                        NUTRI<span className="text-brand-500">SUP</span>
-                        <span className="ml-2 text-xs font-medium bg-brand-500/20 text-brand-400 px-2 py-0.5 rounded-full">Admin</span>
+                    <Link href="/" className="text-xl font-black tracking-tighter uppercase">
+                        XNUTRI
+                        <span className="ml-2 text-xs font-medium bg-brand-500/20 text-brand-500 px-2 py-0.5 rounded-full">Admin</span>
                     </Link>
                 </div>
 
