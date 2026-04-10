@@ -1,7 +1,8 @@
 import { prisma } from "@/lib/prisma";
-import { Package, Search, ShoppingBag, MapPin, CreditCard, User as UserIcon } from "lucide-react";
-import Link from "next/link";
+import { ShoppingBag } from "lucide-react";
 import { StatusSelector } from "./StatusSelector";
+
+export const dynamic = 'force-dynamic';
 
 export default async function AdminPedidos() {
     const orders = await prisma.order.findMany({

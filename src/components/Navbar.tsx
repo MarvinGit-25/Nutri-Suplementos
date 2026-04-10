@@ -12,6 +12,7 @@ export function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
     }, []);
 
@@ -31,7 +32,7 @@ export function Navbar() {
                     {/* Logo */}
                     <div className="flex-shrink-0 flex items-center">
                         <Link href="/" className="flex items-center gap-1">
-                            <span className="text-2xl font-black tracking-tighter text-brand-500 uppercase">XNUTRI</span>
+                            <span className="text-xl sm:text-2xl font-black tracking-tighter text-brand-500 uppercase">XNUTRI</span>
                         </Link>
                     </div>
 
@@ -45,22 +46,22 @@ export function Navbar() {
                     </nav>
 
                     {/* Actions */}
-                    <div className="flex items-center space-x-4">
-                        <form action="/busca" method="GET" className="relative hidden sm:block">
+                    <div className="flex items-center space-x-2 sm:space-x-4">
+                        <form action="/busca" method="GET" className="relative hidden lg:block">
                             <input
                                 name="q"
                                 type="text"
                                 placeholder="Buscar..."
                                 className="pl-4 pr-10 py-1.5 bg-gray-100 dark:bg-dark-800 border-none rounded-full text-xs focus:ring-1 focus:ring-brand-500 outline-none w-40 focus:w-60 transition-all"
                             />
-                            <button type="submit" className="absolute right-2 top-1/2 -translate-y-1/2 p-1 hover:text-brand-500 transition-colors">
+                            <button type="submit" className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-gray-900 dark:text-white hover:text-brand-500 transition-colors">
                                 <Search className="w-4 h-4" />
                             </button>
                         </form>
-                        <Link href="/conta" className="p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors hidden sm:block">
+                        <Link href="/conta" className="p-2 text-gray-900 dark:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors hidden md:block">
                             <User className="w-5 h-5" />
                         </Link>
-                        <button onClick={openCart} className="relative p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors">
+                        <button onClick={openCart} className="relative p-2 text-gray-900 dark:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors">
                             <ShoppingCart className="w-5 h-5" />
                             {mounted && getTotalItems() > 0 && (
                                 <span className="absolute top-0 right-0 inline-flex items-center justify-center px-1.5 py-0.5 text-[10px] font-bold leading-none text-white transform translate-x-1/4 -translate-y-1/4 bg-brand-500 rounded-full">
@@ -68,7 +69,7 @@ export function Navbar() {
                                 </span>
                             )}
                         </button>
-                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors md:hidden">
+                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 text-gray-900 dark:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors md:hidden">
                             <Menu className="w-6 h-6" />
                         </button>
                     </div>
@@ -86,7 +87,7 @@ export function Navbar() {
                             className="w-full pl-4 pr-10 py-3 bg-gray-100 dark:bg-dark-800 border-none rounded-xl text-sm focus:ring-1 focus:ring-brand-500 outline-none"
                         />
                         <button type="submit" className="absolute right-3 top-1/2 -translate-y-1/2">
-                            <Search className="w-5 h-5 text-gray-400" />
+                            <Search className="w-5 h-5 text-gray-500 dark:text-gray-400" />
                         </button>
                     </form>
                     <nav className="flex flex-col gap-2">

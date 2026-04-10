@@ -2,6 +2,8 @@ import { DollarSign, Package, ShoppingBag, TrendingUp, Users } from "lucide-reac
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminDashboard() {
     // Fetch real stats from Prisma
     const [totalOrders, totalProducts, totalUsers, successfulOrders] = await Promise.all([

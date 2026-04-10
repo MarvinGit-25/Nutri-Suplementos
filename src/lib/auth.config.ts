@@ -2,22 +2,11 @@
 import type { NextAuthConfig } from "next-auth";
 
 export const authConfig: NextAuthConfig = {
+    trustHost: true,
     pages: {
         signIn: "/login",
     },
     callbacks: {
-        async authorized({ auth, request: { nextUrl } }) {
-            const isLoggedIn = !!auth?.user;
-            const isAdminRoute = nextUrl.pathname.startsWith("/admin");
-
-            if (isAdminRoute) {
-                if (!isLoggedIn) return false; // Redirect to signIn
-                const role = (auth?.user as { role?: string })?.role;
-                if (role !== "ADMIN") return Response.redirect(new URL("/", nextUrl));
-                return true;
-            }
-            return true;
-        },
         async jwt({ token, user }) {
             if (user) {
                 token.role = (user as { role?: string }).role;

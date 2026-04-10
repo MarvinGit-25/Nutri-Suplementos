@@ -1,14 +1,20 @@
 import { MessageCircle } from "lucide-react";
-import { prisma } from "@/lib/prisma";
 
 export async function WhatsAppWidget() {
-    const setting = await prisma.setting.findUnique({ where: { key: "contactPhone" } });
-    const phone = setting?.value || "5511999999999";
-    
+    let phone = "5511999999999";
+
+    try {
+        const { prisma } = await import("@/lib/prisma");
+        const setting = await prisma.setting.findUnique({ where: { key: "contactPhone" } });
+        if (setting?.value) {
+            phone = setting.value;
+        }
+    } catch {
+        // If DB is unavailable (e.g. during build), use the default phone
+    }
+
     // Clean string keeping only numbers
     const cleanPhone = phone.replace(/\D/g, '');
-
-    // Se estiver muito vazio, evita renderizar ou renderiza com placeholder, mas a lógica usa o default se /D remover tudo.
     const finalPhone = cleanPhone.length > 8 ? cleanPhone : "5511999999999";
 
     return (

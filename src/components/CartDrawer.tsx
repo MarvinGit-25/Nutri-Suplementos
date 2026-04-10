@@ -12,6 +12,7 @@ export function CartDrawer() {
 
     // Hydration fix for Zustand + Next.js
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setIsMounted(true);
     }, []);
 

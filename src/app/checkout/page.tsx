@@ -109,7 +109,7 @@ export default function CheckoutPage() {
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <h1 className="text-3xl font-black mb-10 text-gray-900 dark:text-white uppercase tracking-tight">Finalizar Compra</h1>
+            <h1 className="text-3xl font-black mb-10 text-inherit uppercase tracking-tight">Finalizar Compra</h1>
 
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
                 {/* Form */}
@@ -119,8 +119,8 @@ export default function CheckoutPage() {
                         <h2 className="text-lg font-bold mb-6 flex items-center gap-2">
                             Dados Pessoais
                         </h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                            <div className="sm:col-span-2">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div className="md:col-span-2">
                                 <label className="block text-sm font-semibold mb-1.5">Nome Completo</label>
                                 <input required type="text" value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} className="w-full px-4 py-3 bg-gray-50 dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-xl text-sm focus:ring-2 focus:ring-brand-500 outline-none transition-all" placeholder="Seu nome completo" />
                             </div>
@@ -138,12 +138,12 @@ export default function CheckoutPage() {
                     {/* Address */}
                     <div className="bg-white dark:bg-dark-900 rounded-2xl p-6 border border-gray-100 dark:border-dark-800 shadow-sm">
                         <h2 className="text-lg font-bold mb-6">Endereço de Entrega</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                             <div>
                                 <label className="block text-sm font-semibold mb-1.5">CEP</label>
                                 <input required type="text" value={form.cep} onChange={e => setForm(f => ({ ...f, cep: e.target.value }))} className="w-full px-4 py-3 bg-gray-50 dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-xl text-sm focus:ring-2 focus:ring-brand-500 outline-none transition-all" placeholder="00000-000" />
                             </div>
-                            <div className="sm:col-span-2">
+                            <div className="md:col-span-2">
                                 <label className="block text-sm font-semibold mb-1.5">Rua / Avenida</label>
                                 <input required type="text" value={form.address} onChange={e => setForm(f => ({ ...f, address: e.target.value }))} className="w-full px-4 py-3 bg-gray-50 dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-xl text-sm focus:ring-2 focus:ring-brand-500 outline-none transition-all" placeholder="Nome da rua" />
                             </div>

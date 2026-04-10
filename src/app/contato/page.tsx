@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, MessageCircle, HelpCircle, Package, ArrowRightLeft } from "lucide-react";
+import { Mail, MessageCircle, HelpCircle, Package, ArrowRightLeft } from "lucide-react";
 import Link from "next/link";
 
 export const metadata = { title: "Central de Atendimento | XNUTRI" };
@@ -43,7 +43,7 @@ export default function ContatoPage() {
                             Envie uma Mensagem
                         </h2>
                         <form className="space-y-4">
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-sm font-medium mb-1 text-gray-400">Seu Nome</label>
                                     <input type="text" className="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-white" placeholder="João da Silva" />
@@ -122,12 +122,12 @@ export default function ContatoPage() {
                     <div className="bg-dark-900 border border-dark-800 rounded-3xl p-6 shadow-xl space-y-4">
                         <h3 className="font-bold uppercase tracking-wider text-sm text-gray-400">Links Úteis</h3>
                         
-                        <Link href="#faq" className="flex items-center gap-3 p-3 bg-dark-800 rounded-xl hover:bg-dark-700 transition-colors group">
+                        <Link href="/rastreio" className="flex items-center gap-3 p-3 bg-dark-800 rounded-xl hover:bg-dark-700 transition-colors group">
                             <Package className="w-5 h-5 text-gray-400 group-hover:text-brand-500 transition-colors" />
                             <div className="text-sm font-medium text-gray-300">Rastrear Pedido</div>
                         </Link>
                         
-                        <Link href="#faq" className="flex items-center gap-3 p-3 bg-dark-800 rounded-xl hover:bg-dark-700 transition-colors group">
+                        <Link href="/trocas" className="flex items-center gap-3 p-3 bg-dark-800 rounded-xl hover:bg-dark-700 transition-colors group">
                             <ArrowRightLeft className="w-5 h-5 text-gray-400 group-hover:text-brand-500 transition-colors" />
                             <div className="text-sm font-medium text-gray-300">Trocas e Devoluções</div>
                         </Link>

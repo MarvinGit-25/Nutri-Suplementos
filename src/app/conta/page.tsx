@@ -3,6 +3,8 @@ import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import { Package, ShoppingBag, User as UserIcon, Calendar, CreditCard, MapPin } from "lucide-react";
 
+export const dynamic = 'force-dynamic';
+
 export default async function AccountPage() {
     const session = await auth();
 
@@ -121,6 +123,7 @@ export default async function AccountPage() {
                                                     <div key={item.id} className="flex gap-4 items-center">
                                                         <div className="w-12 h-12 bg-gray-50 dark:bg-dark-800 rounded-xl border border-gray-100 dark:border-dark-800 flex-shrink-0 overflow-hidden">
                                                             {item.product.imageUrl && (
+                                                                /* eslint-disable-next-line @next/next/no-img-element */
                                                                 <img src={item.product.imageUrl} alt={item.product.name} className="w-full h-full object-cover" />
                                                             )}
                                                         </div>

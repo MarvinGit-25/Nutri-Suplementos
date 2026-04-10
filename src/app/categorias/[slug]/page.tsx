@@ -1,6 +1,9 @@
 import { ProductCard } from "@/components/ProductCard";
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
+import Link from "next/link";
+
+export const dynamic = 'force-dynamic';
 
 export default async function CategoryPage({
     params,
@@ -33,7 +36,7 @@ export default async function CategoryPage({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="mb-10">
                 <nav className="text-sm text-gray-500 mb-4 flex gap-2">
-                    <a href="/" className="hover:text-brand-500 transition-colors">Início</a>
+                    <Link href="/" className="hover:text-brand-500 transition-colors">Início</Link>
                     <span>/</span>
                     <a href="/produtos" className="hover:text-brand-500 transition-colors">Produtos</a>
                     <span>/</span>

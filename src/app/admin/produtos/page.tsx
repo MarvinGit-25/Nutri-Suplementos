@@ -1,7 +1,7 @@
-import { Plus, Package } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { ProductsTable } from "./ProductsTable";
-import Link from "next/link";
+
+export const dynamic = 'force-dynamic';
 
 export default async function AdminProdutos() {
     const products = await prisma.product.findMany({

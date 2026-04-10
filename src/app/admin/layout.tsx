@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { LayoutDashboard, Package, ShoppingBag, Users, Settings, ChevronRight } from "lucide-react";
+import { auth } from "@/lib/auth";
+import { redirect } from "next/navigation";
 
 const navItems = [
     { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
@@ -9,7 +11,18 @@ const navItems = [
     { href: "/admin/configuracoes", label: "Configurações", icon: Settings },
 ];
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default async function AdminLayout({ children }: { children: React.ReactNode }) {
+    const session = await auth();
+
+    if (!session?.user) {
+        redirect("/login?callbackUrl=/admin");
+    }
+
+    const role = (session.user as { role?: string })?.role;
+    if (role !== "ADMIN") {
+        redirect("/");
+    }
+
     return (
         <div className="flex min-h-screen bg-dark-950">
             {/* Sidebar */}

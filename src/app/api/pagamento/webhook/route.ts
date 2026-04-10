@@ -45,10 +45,9 @@ export async function POST(req: Request) {
         }
 
         return NextResponse.json({ status: "success" });
-    } catch (error: any) {
+    } catch (error) {
         console.error("[WEBHOOK_ERROR]", error);
-        // It's often better to return 200/201 to webhooks even on some errors 
-        // to prevent them from retrying infinitely if it's a code bug.
-        return NextResponse.json({ error: error.message }, { status: 200 });
+        const errorMessage = error instanceof Error ? error.message : "Unknown error";
+        return NextResponse.json({ error: errorMessage }, { status: 200 });
     }
 }

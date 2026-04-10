@@ -2,6 +2,7 @@ import { getClients } from "./actions";
 import { ClientsTable } from "./ClientsTable";
 import { Users } from "lucide-react";
 
+export const dynamic = 'force-dynamic';
 export const metadata = { title: "Clientes | Admin" };
 
 export default async function ClientesPage() {

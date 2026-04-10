@@ -2,6 +2,8 @@ import { ProductCard } from "@/components/ProductCard";
 import { prisma } from "@/lib/prisma";
 import { Search } from "lucide-react";
 
+export const dynamic = 'force-dynamic';
+
 export default async function SearchPage({
     searchParams,
 }: {
@@ -31,7 +33,7 @@ export default async function SearchPage({
             <div className="mb-10 text-center">
                 <h1 className="text-3xl font-black text-gray-900 dark:text-white flex items-center justify-center gap-3">
                     <Search className="w-8 h-8 text-brand-500" />
-                    Resultados para: "{query}"
+                    Resultados para &quot;{query}&quot;
                 </h1>
                 <p className="text-gray-500 mt-2">
                     {products.length === 0

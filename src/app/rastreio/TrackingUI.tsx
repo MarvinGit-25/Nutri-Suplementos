@@ -58,7 +58,7 @@ export function TrackingUI() {
                 <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-6 rounded-2xl text-center animate-in fade-in zoom-in duration-300">
                     <AlertCircle className="w-12 h-12 mx-auto mb-3" />
                     <h3 className="text-lg font-bold">Código não localizado</h3>
-                    <p className="text-sm mt-1 text-red-400/80">Verifique se o código possui a sigla "BR" e tente novamente. Pode levar até 24h para atualizar no sistema do frete.</p>
+                    <p className="text-sm mt-1 text-red-400/80">Verifique se o código possui a sigla &quot;BR&quot; e tente novamente. Pode levar até 24h para atualizar no sistema do frete.</p>
                 </div>
             )}
 

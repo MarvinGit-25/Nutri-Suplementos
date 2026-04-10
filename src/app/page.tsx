@@ -4,6 +4,8 @@ import { ArrowRight, Zap, Target, ShieldPlus } from "lucide-react";
 import { ProductCard } from "@/components/ProductCard";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   // Fetch featured products from Prisma
   const featuredProducts = await prisma.product.findMany({
@@ -26,7 +28,7 @@ export default async function Home() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32 relative z-10 flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 space-y-8 text-center md:text-left">
-            <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-tight text-balance">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight leading-tight text-balance">
               POTENCIALIZE SEUS <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-brand-600">RESULTADOS</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 max-w-xl text-balance">
@@ -114,7 +116,7 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-end mb-12">
             <div>
-              <h2 className="text-3xl md:text-4xl font-black mb-2">OS MAIS VENDIDOS</h2>
+              <h2 className="text-3xl md:text-4xl font-black mb-2 text-gray-900 dark:text-white">OS MAIS VENDIDOS</h2>
               <p className="text-gray-500 dark:text-gray-400">A elite da suplementação escolhida pelos nossos atletas.</p>
             </div>
             <Link href="/produtos" className="hidden md:flex items-center gap-2 font-bold text-brand-600 dark:text-brand-500 hover:opacity-80 transition-opacity">

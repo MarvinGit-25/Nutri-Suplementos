@@ -2,6 +2,7 @@ import { getSettings } from "./actions";
 import { SettingsForm } from "./SettingsForm";
 import { Settings } from "lucide-react";
 
+export const dynamic = 'force-dynamic';
 export const metadata = { title: "Configurações | Admin" };
 
 export default async function ConfiguracoesPage() {
