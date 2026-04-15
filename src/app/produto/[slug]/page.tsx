@@ -65,9 +65,9 @@ export default async function ProductPage({ params }: Props) {
             </div>
           </div>
 
-        {/* Product details (client component for interactivity) */}
         <ProductDetails product={product} />
       </div>
+     </div>
     </div>
   );
 }
