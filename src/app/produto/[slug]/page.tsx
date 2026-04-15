@@ -21,42 +21,49 @@ export default async function ProductPage({ params }: Props) {
     },
   });
 
-  if (!product) {
+  if (!product || !product.active) {
     notFound();
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <Link
-        href="/"
-        className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors mb-8"
-      >
-        <ArrowLeft className="w-4 h-4" />
-        Voltar para a loja
-      </Link>
+    <div className="min-h-screen bg-black py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-gray-500 hover:text-white transition-colors mb-12 group"
+        >
+          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-2 transition-transform" />
+          VOLTAR PARA A LOJA
+        </Link>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-        {/* Image Section */}
-        <div className="relative aspect-square bg-gray-50 dark:bg-dark-800 rounded-3xl overflow-hidden flex items-center justify-center border border-gray-100 dark:border-dark-700 group">
-          {product.imageUrl ? (
-            <Image
-              src={product.imageUrl}
-              alt={product.name}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          ) : (
-            <div className="text-gray-300 dark:text-dark-600 text-center p-12">
-              <ShoppingCart className="w-24 h-24 mx-auto mb-4 opacity-20" />
-              <p className="text-sm">Sem imagem disponível</p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+          {/* Image Section - Industrial Stage */}
+          <div className="relative aspect-square bg-[#111111] border border-white/5 rounded-2xl overflow-hidden flex items-center justify-center group shadow-2xl">
+            {/* Subtle stage lighting effect */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-black/40 to-transparent pointer-events-none" />
+            
+            {product.imageUrl ? (
+              <div className="relative w-full h-full p-12">
+                <Image
+                  src={product.imageUrl}
+                  alt={product.name}
+                  fill
+                  className="object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+              </div>
+            ) : (
+              <div className="text-gray-700 text-center p-12">
+                <ShoppingCart className="w-24 h-24 mx-auto mb-4 opacity-10" />
+                <p className="text-[10px] font-black uppercase tracking-widest">Aguardando Imagem Brutal</p>
+              </div>
+            )}
+            
+            <div className="absolute top-8 left-8">
+              <span className="bg-brand-500 text-white text-[10px] font-[900] px-4 py-2 uppercase tracking-[0.2em] italic">
+                {product.category.name}
+              </span>
             </div>
-          )}
-          <div className="absolute top-6 left-6">
-            <span className="bg-white/90 dark:bg-dark-900/90 backdrop-blur-sm text-xs font-bold px-3 py-1.5 rounded-full text-brand-600 dark:text-brand-500 uppercase tracking-wide border border-gray-100 dark:border-dark-700 shadow-sm">
-              {product.category.name}
-            </span>
           </div>
-        </div>
 
         {/* Product details (client component for interactivity) */}
         <ProductDetails product={product} />

@@ -5,6 +5,7 @@ export const dynamic = 'force-dynamic';
 
 export default async function AdminProdutos() {
     const products = await prisma.product.findMany({
+        where: { active: true },
         include: {
             category: true,
         },

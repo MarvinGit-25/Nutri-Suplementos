@@ -23,7 +23,10 @@ export default async function CategoryPage({
 
     // Fetch products belonging to this category
     const products = await prisma.product.findMany({
-        where: { categoryId: category.id },
+        where: { 
+            categoryId: category.id,
+            active: true
+        },
         include: {
             category: true,
         },

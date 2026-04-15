@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 
 export async function getProducts() {
     return await prisma.product.findMany({
+        where: { active: true },
         include: {
             category: true,
         },
@@ -19,8 +20,9 @@ export async function getCategories() {
 }
 
 export async function deleteProduct(id: string) {
-    await prisma.product.delete({
+    await prisma.product.update({
         where: { id },
+        data: { active: false }
     });
     revalidatePath("/admin/produtos");
     revalidatePath("/produtos");

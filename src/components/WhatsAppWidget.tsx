@@ -22,18 +22,15 @@ export async function WhatsAppWidget() {
             href={`https://wa.me/${finalPhone}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="fixed bottom-6 right-6 z-50 p-4 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full shadow-2xl hover:shadow-[#25D366]/30 transition-all hover:-translate-y-1 group flex items-center justify-center animate-in fade-in slide-in-from-bottom-5 duration-700"
+            className="fixed bottom-8 right-8 z-50 p-4 bg-white hover:bg-brand-500 text-black hover:text-white transition-all duration-300 hover:-translate-y-1 group flex items-center justify-center border border-black/10 shadow-[8px_8px_0px_rgba(211,47,47,0.3)] hover:shadow-none"
             aria-label="Fale conosco no WhatsApp"
         >
-            <MessageCircle className="w-8 h-8 relative z-10" />
+            <MessageCircle className="w-6 h-6 relative z-10" />
             
             {/* Tooltip */}
-            <span className="absolute -top-12 right-0 bg-dark-900 border border-dark-800 text-white text-sm font-bold px-4 py-2 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl">
-                Precisa de ajuda?
+            <span className="absolute right-full mr-4 bg-black border border-white/10 text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap italic">
+                SUPORTE XNUTRI
             </span>
-            
-            {/* Pulse effect */}
-            <div className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20 duration-1000"></div>
         </a>
     );
 }

@@ -3,23 +3,25 @@
 @theme {
   --color-brand-50: #fef2f2;
   --color-brand-100: #fee2e2;
-  --color-brand-500: #ff0000;
-  --color-brand-600: #cc0000;
-  --color-brand-900: #660000;
+  --color-brand-500: #D32F2F;
+  --color-brand-600: #B71C1C;
+  --color-brand-900: #7F0000;
 
-  --color-dark-900: #0a0a0a;
-  --color-dark-800: #171717;
-  --color-dark-700: #262626;
+  --color-promo-500: #FFD700;
+  
+  --color-dark-900: #000000;
+  --color-dark-800: #0A0A0A;
+  --color-dark-700: #1A1A1A;
 }
 
 @layer base {
   :root {
-    --background: #ffffff;
-    --foreground: #0a0a0a;
+    --background: #000000;
+    --foreground: #ffffff;
   }
 
   .dark {
-    --background: #0a0a0a;
+    --background: #000000;
     --foreground: #ffffff;
   }
 

@@ -31,9 +31,11 @@ export default async function ProdutosPage({
   // Apply Filter condition
   const whereRule: { 
       price: { lte: number }; 
-      category?: { name: string }; 
+      category?: { name: string };
+      active: boolean;
   } = { 
-      price: { lte: maxPrice } 
+      price: { lte: maxPrice },
+      active: true
   };
 
   if (selected !== "Todos") {
