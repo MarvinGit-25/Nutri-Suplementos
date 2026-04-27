@@ -35,7 +35,33 @@ export async function createOrder(data: OrderInput) {
 
     const groupedItems = Object.values(groupedItemsMap);
 
-    const total = groupedItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    // Recalculate prices server-side to prevent client-side tampering.
+    const productIds = groupedItems.map((item) => item.id);
+    const products = await prisma.product.findMany({
+        where: { id: { in: productIds }, active: true },
+        select: { id: true, price: true, stock: true, name: true },
+    });
+
+    const productById = new Map(products.map((product) => [product.id, product]));
+    const normalizedItems = groupedItems.map((item) => {
+        const product = productById.get(item.id);
+        if (!product) {
+            throw new Error("Um ou mais produtos não estão disponíveis no momento.");
+        }
+        if (item.quantity <= 0) {
+            throw new Error("Quantidade inválida para um dos produtos.");
+        }
+        if (product.stock < item.quantity) {
+            throw new Error(`Estoque insuficiente para ${product.name}.`);
+        }
+        return {
+            id: item.id,
+            quantity: item.quantity,
+            price: product.price,
+        };
+    });
+
+    const total = normalizedItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
     // 1. Upsert User (identified by email)
     const user = await prisma.user.upsert({
@@ -64,7 +90,7 @@ export async function createOrder(data: OrderInput) {
             state: data.state,
             paymentMethod: data.payment,
             items: {
-                create: groupedItems.map((item) => ({
+                create: normalizedItems.map((item) => ({
                     productId: item.id,
                     quantity: item.quantity,
                     price: item.price,

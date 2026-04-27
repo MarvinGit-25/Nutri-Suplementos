@@ -30,11 +30,11 @@ export default function CheckoutSucesso() {
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link
-                        href="/pedidos"
+                        href="/rastreio"
                         className="flex-1 px-8 py-4 bg-gray-900 dark:bg-white dark:text-gray-900 text-white rounded-xl font-bold hover:bg-gray-800 transition-all flex items-center justify-center gap-2"
                     >
                         <ShoppingBag className="w-5 h-5" />
-                        Ver Meus Pedidos
+                        Rastrear Pedido
                     </Link>
                     <Link
                         href="/"
