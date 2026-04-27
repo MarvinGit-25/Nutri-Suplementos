@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Política de Privacidade | XNUTRI",
+    description: "Política de privacidade da XNUTRI com diretrizes sobre coleta, uso, proteção e solicitação de dados pessoais.",
+};
+
 export default function PrivacidadePage() {
     return (
         <section className="max-w-4xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
@@ -14,6 +21,10 @@ export default function PrivacidadePage() {
                 <p>
                     Você pode solicitar atualização ou remoção de dados entrando em contato com nosso
                     suporte pelos canais oficiais exibidos no site.
+                </p>
+                <p>
+                    Medidas técnicas e administrativas são aplicadas para reduzir riscos de acesso não
+                    autorizado, alteração ou perda indevida de dados.
                 </p>
             </div>
         </section>

@@ -37,6 +37,7 @@ export function ProductCard({ id, slug, name, price, imageUrl, category }: Produ
                             src={imageUrl}
                             alt={name}
                             fill
+                            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 22vw"
                             className="object-contain p-6 group-hover:scale-110 transition-transform duration-700 ease-out"
                         />
                     ) : (

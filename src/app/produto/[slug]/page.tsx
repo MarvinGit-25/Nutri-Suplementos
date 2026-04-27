@@ -48,6 +48,7 @@ export default async function ProductPage({ params }: Props) {
                   src={product.imageUrl}
                   alt={product.name}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
               </div>

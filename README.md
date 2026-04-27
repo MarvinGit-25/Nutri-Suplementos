@@ -26,6 +26,7 @@ CLOUDINARY_API_KEY="..."
 CLOUDINARY_API_SECRET="..."
 
 ADMIN_SETUP_SECRET="segredo-para-bootstrap-do-admin"
+ADMIN_BOOTSTRAP_ENABLED="false"
 SITE_URL="https://seu-dominio.com"
 ```
 
@@ -53,6 +54,7 @@ npm run dev
 4. Validar upload de imagem (Cloudinary).
 5. Validar login admin e `ADMIN_SETUP_SECRET`.
 6. Confirmar `SITE_URL` e `NEXTAUTH_URL` corretos.
+7. Manter `ADMIN_BOOTSTRAP_ENABLED=false` em producao apos criar o admin inicial.
 
 ## Smoke test recomendado
 
@@ -62,3 +64,12 @@ npm run dev
 4. Confirmar webhook atualiza pedido para `PAID`.
 5. Confirmar estoque reduz apenas uma vez (idempotencia).
 6. Validar rotas publicas: `/rastreio`, `/termos`, `/privacidade`.
+
+## Operacao e suporte
+
+- Guia operacional admin: `docs/operacao-admin.md`
+
+## Seguranca de autenticacao
+
+- O bootstrap de admin (`/api/auth/register`) possui limite de tentativas por IP.
+- O login por credenciais (`/api/auth/callback/credentials`) possui rate limit por IP para reduzir brute force.

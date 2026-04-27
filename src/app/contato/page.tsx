@@ -1,7 +1,11 @@
 import { Mail, MessageCircle, HelpCircle, Package, ArrowRightLeft } from "lucide-react";
 import Link from "next/link";
+import type { Metadata } from "next";
 
-export const metadata = { title: "Central de Atendimento | XNUTRI" };
+export const metadata: Metadata = {
+    title: "Central de Atendimento | XNUTRI",
+    description: "Canal de atendimento da XNUTRI para suporte, dúvidas frequentes, trocas, devoluções e rastreio de pedidos.",
+};
 
 const faqs = [
     {

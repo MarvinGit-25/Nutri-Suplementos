@@ -86,7 +86,7 @@ export function Navbar() {
                     >
                         <div className="relative w-12 h-12 bg-dark-800 p-1 flex-shrink-0">
                             {item.imageUrl ? (
-                                <Image src={item.imageUrl} alt={item.name} fill className="object-contain" />
+                                <Image src={item.imageUrl} alt={item.name} fill sizes="48px" className="object-contain" />
                             ) : (
                                 <div className="w-full h-full bg-dark-900" />
                             )}

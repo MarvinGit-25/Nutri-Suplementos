@@ -1,7 +1,11 @@
 import { Scale, RotateCcw, AlertTriangle, MessageCircle } from "lucide-react";
 import Link from "next/link";
+import type { Metadata } from "next";
 
-export const metadata = { title: "Trocas e Devoluções | XNUTRI" };
+export const metadata: Metadata = {
+    title: "Trocas e Devoluções | XNUTRI",
+    description: "Política de trocas e devoluções da XNUTRI com direito de arrependimento, avarias e orientações de suporte.",
+};
 
 export default function TrocasPage() {
     return (

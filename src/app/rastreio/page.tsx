@@ -1,7 +1,11 @@
 import { Map } from "lucide-react";
 import { TrackingUI } from "./TrackingUI";
+import type { Metadata } from "next";
 
-export const metadata = { title: "Rastreio Oficial | XNUTRI" };
+export const metadata: Metadata = {
+    title: "Rastreio Oficial | XNUTRI",
+    description: "Acompanhe o status do seu pedido com o código de rastreio da XNUTRI.",
+};
 
 export default function RastreioPage() {
     return (

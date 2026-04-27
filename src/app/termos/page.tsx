@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Termos de Uso | XNUTRI",
+    description: "Termos de uso da XNUTRI Suplementos para compras, entrega, atendimento e regras da plataforma.",
+};
+
 export default function TermosPage() {
     return (
         <section className="max-w-4xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
@@ -14,6 +21,10 @@ export default function TermosPage() {
                 <p>
                     Para solicitações de suporte, trocas ou devoluções, utilize nossos canais oficiais
                     de atendimento na página de contato.
+                </p>
+                <p>
+                    Ao concluir uma compra, você confirma que leu as informações de produto, prazos e
+                    políticas de atendimento disponíveis no site.
                 </p>
             </div>
         </section>

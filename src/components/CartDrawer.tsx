@@ -65,7 +65,7 @@ export function CartDrawer() {
                                 <li key={item.id} className="flex gap-4">
                                     <div className="relative w-20 h-20 rounded-xl overflow-hidden bg-gray-50 dark:bg-dark-800 border border-gray-100 dark:border-dark-800 flex-shrink-0">
                                         {item.imageUrl ? (
-                                            <Image src={item.imageUrl} alt={item.name} fill className="object-cover" />
+                                            <Image src={item.imageUrl} alt={item.name} fill sizes="80px" className="object-cover" />
                                         ) : (
                                             <div className="w-full h-full flex items-center justify-center text-[10px] text-gray-400">
                                                 S/ Foto

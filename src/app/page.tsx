@@ -29,6 +29,7 @@ export default async function Home() {
             src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=2000"
             alt="Academia Bruta"
             fill
+            sizes="100vw"
             priority
             className="object-cover opacity-40 grayscale"
           />
