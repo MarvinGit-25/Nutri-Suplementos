@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nutri Suplementos
 
-## Getting Started
+Aplicacao de e-commerce com Next.js, Prisma e Mercado Pago.
 
-First, run the development server:
+## Requisitos
+
+- Node.js 20+
+- Banco PostgreSQL acessivel
+- Conta Mercado Pago (token + webhook secret)
+- Conta Cloudinary (upload de imagens)
+
+## Variaveis de ambiente
+
+Crie um `.env` com os campos abaixo:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+DATABASE_URL="postgresql://USER:PASSWORD@HOST:5432/DB?schema=public"
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="uma-chave-longa-e-aleatoria"
+
+MERCADOPAGO_ACCESS_TOKEN="APP_USR-..."
+MERCADOPAGO_WEBHOOK_SECRET="chave-secreta-do-webhook"
+
+CLOUDINARY_CLOUD_NAME="..."
+CLOUDINARY_API_KEY="..."
+CLOUDINARY_API_SECRET="..."
+
+ADMIN_SETUP_SECRET="segredo-para-bootstrap-do-admin"
+SITE_URL="https://seu-dominio.com"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Instalacao e execucao
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npx prisma generate
+npx prisma migrate deploy
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Scripts uteis
 
-## Learn More
+- `npm run dev`: ambiente local
+- `npm run build`: build de producao
+- `npm run start`: sobe app compilada
+- `npm run lint`: valida qualidade de codigo
 
-To learn more about Next.js, take a look at the following resources:
+## Checklist de liberacao (go-live)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Garantir `MERCADOPAGO_WEBHOOK_SECRET` em producao.
+2. Configurar webhook do Mercado Pago apontando para `/api/pagamento/webhook`.
+3. Rodar `npx prisma migrate deploy` no ambiente de deploy.
+4. Validar upload de imagem (Cloudinary).
+5. Validar login admin e `ADMIN_SETUP_SECRET`.
+6. Confirmar `SITE_URL` e `NEXTAUTH_URL` corretos.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Smoke test recomendado
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Acessar loja, adicionar produtos e concluir checkout.
+2. Verificar criacao do pedido no banco com status `PENDING`.
+3. Simular/aprovar pagamento no Mercado Pago.
+4. Confirmar webhook atualiza pedido para `PAID`.
+5. Confirmar estoque reduz apenas uma vez (idempotencia).
+6. Validar rotas publicas: `/rastreio`, `/termos`, `/privacidade`.
