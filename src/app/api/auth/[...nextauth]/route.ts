@@ -1,10 +1,10 @@
 import { handlers } from "@/lib/auth";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export const GET = handlers.GET;
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
     const { pathname } = new URL(req.url);
 
     // Protect credential callback against brute-force attempts.
