@@ -5,6 +5,7 @@ import { ShoppingCart, Menu, Search, User, Loader2 } from "lucide-react";
 import { useCartStore } from "@/store/cartStore";
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 interface Suggestion {
     id: string;
@@ -18,9 +19,12 @@ interface Suggestion {
 }
 
 export function Navbar() {
+    const pathname = usePathname();
     const { openCart, getTotalItems } = useCartStore();
     const [mounted, setMounted] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    if (pathname?.startsWith('/admin')) return null;
 
     // Search & Autocomplete State
     const [query, setQuery] = useState("");
